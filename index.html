@@ -54,25 +54,28 @@ The place is very old and have a lot of <b>historical</b> importance.
     </table>
 <hr>
 <blockquote>
-<h1> Algebra </h1>
-<p>For the kind of algebraic structure, see Algebra over a field. For other uses, see Algebra (disambiguation).
-    The quadratic formula expresses the solution of the equation ax2 + bx + c = 0, where a is not zero, in terms of its coefficients a, b and c.
-    Algebra (from Arabic: الجبر, romanized: al-jabr, lit. 'reunion of broken parts,[1] bonesetting[2]') is one of the broad areas of mathematics. Roughly speaking, algebra is the study of mathematical symbols and the rules for manipulating these symbols;[3] it is a unifying thread of almost all of mathematics.</p>
-<a href="https://en.wikipedia.org/wiki/Algebra"> More Info</a>
+<h1> Numerical Methods </h1>
+<p>Numerical method is the approach of solving mathematical or physical equations using computers. This is done by converting differential equations defined in continuous space and time to a large system of equations in discretized domain.</p>
+<a href="https://www.sciencedirect.com/topics/engineering/numerical-method">Information related to numerical-method</a>
 </blockquote>
 <pre>
-    int n;
-    vector is_prime(n+1, true);
-    is_prime[0] = is_prime[1] = false;
-    for (int i = 2; i<= n; i++) {
-        if (is_prime[i] && (long long)i * i <= n) {
-            for (int j = i * i; j <= n; j += i)
-                is_prime[j] = false;
+    double ternary_search(double l, double r) {
+        double eps = 1e-9;              //set the error limit here
+        while (r - l > eps) {
+            double m1 = l + (r - l) / 3;
+            double m2 = r - (r - l) / 3;
+            double f1 = f(m1);      //evaluates the function at m1
+            double f2 = f(m2);      //evaluates the function at m2
+            if (f1 < f2)
+                l = m1;
+            else
+                r = m2;
         }
+        return f(l);                    //return the maximum of f(x) in [l, r]
     }
 </pre>
 <blockquote>
-<a href="https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html"> code </a>
+<a href="https://cp-algorithms.com/num_methods/ternary_search.html"> code </a>
 </blockquote>
 </body>
 <style>
